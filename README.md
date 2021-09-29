@@ -1,4 +1,2 @@
 # Digital-Electronics-2
-**H2**
-
-###### H6
+Combined emphasis with **asterisks and _underscores_**.
