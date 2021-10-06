@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Preparation tasks &lpar;done before the lab at home&rpar;</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h2 id="preparation-tasks-done-before-the-lab-at-home">Preparation tasks (done before the lab at home)</h2>
+<ol>
+<li>Fill in the following table and enter the number of bits and numeric range for the selected data types defined by C.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Data type</strong></th>
+<th style="text-align:center"><strong>Number of bits</strong></th>
+<th style="text-align:center"><strong>Range</strong></th>
+<th style="text-align:left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>uint8_t</code></td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">0, 1, ..., 255</td>
+<td style="text-align:left">Unsigned 8-bit integer</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>int8_t</code></td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-128 to 127</td>
+<td style="text-align:left">signed 8-bit integer</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>uint16_t</code></td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">0 to 65535</td>
+<td style="text-align:left">unsigned 16-bit integer</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>int16_t</code></td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">-32768 to 32767</td>
+<td style="text-align:left">signed 16-bit integer</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>float</code></td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">-3.4e+38, ..., 3.4e+38</td>
+<td style="text-align:left">Single-precision floating-point</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>void</code></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">none</td>
+<td style="text-align:left">none</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>Any function in C contains a declaration (function prototype), a definition (block of code, body of the function); each declared function can be executed (called). Study <a href="https://www.programiz.com/c-programming/c-user-defined-functions">this article</a> and complete the missing sections in the following user defined function declaration, definition, and call.</li>
+</ol>
+<pre><code class="language-C"><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;avr/io.h&gt;</span></span>
+
+<span class="hljs-comment">// Function declaration (prototype)</span>
+<span class="hljs-function"><span class="hljs-keyword">uint16_t</span> <span class="hljs-title">calculate</span><span class="hljs-params">(<span class="hljs-keyword">uint8_t</span>, <span class="hljs-keyword">uint8_t</span>)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">uint8_t</span> a = <span class="hljs-number">156</span>;
+    <span class="hljs-keyword">uint8_t</span> b = <span class="hljs-number">14</span>;
+    <span class="hljs-keyword">uint16_t</span> c;
+
+    <span class="hljs-comment">// Function call</span>
+    c = calculate(a, b);
+
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)
+    {
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-comment">// Function definition (body)</span>
+<span class="hljs-function"><span class="hljs-keyword">uint16_t</span> <span class="hljs-title">calculate</span><span class="hljs-params">(<span class="hljs-keyword">uint8_t</span> x, <span class="hljs-keyword">uint8_t</span> y)</span>
+</span>{
+    <span class="hljs-keyword">uint16_t</span> result;    <span class="hljs-comment">// result = x^2 + 2xy + y^2</span>
+
+    result = x*x;
+    result = result + <span class="hljs-number">2</span>*x*y;
+    result = result + y*y;
+    <span class="hljs-keyword">return</span> result;
+}
+</div></code></pre>
+
+    </body>
+    </html>
