@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 3&colon; EVA MOMENCEAU</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="lab-3-eva-momenceau">Lab 3: EVA MOMENCEAU</h1>
+<p>Link to your <code>Digital-electronics-2</code> GitHub repository:</p>
+<p><a href="https://github.com/Eva-Momenceau/Digital-Electronics-2">https://github.com/Eva-Momenceau/Digital-Electronics-2</a></p>
+<h3 id="data-types-in-c">Data types in C</h3>
+<ol>
+<li>Complete table.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Data type</strong></th>
+<th style="text-align:center"><strong>Number of bits</strong></th>
+<th style="text-align:center"><strong>Range</strong></th>
+<th style="text-align:left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>uint8_t</code></td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">0, 1, ..., 255</td>
+<td style="text-align:left">Unsigned 8-bit integer</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>int8_t</code></td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-128 to 127</td>
+<td style="text-align:left">signed 8-bit integer</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>uint16_t</code></td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">0 to 65535</td>
+<td style="text-align:left">unsigned 16-bit integer</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>int16_t</code></td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">-32768 to 32767</td>
+<td style="text-align:left">signed 16-bit integer</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>float</code></td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">-3.4e+38, ..., 3.4e+38</td>
+<td style="text-align:left">Single-precision floating-point</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>void</code></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">none</td>
+<td style="text-align:left">none</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gpio-library">GPIO library</h3>
+<ol>
+<li>
+<p>In your words, describe the difference between the declaration and the definition of the function in C.</p>
+<ul>
+<li>Function declaration : Used to tell to the compiler that the function exists (name/argument/type of return)</li>
+<li>Function definition : Tell to the compiler what to do when the function is called</li>
+</ul>
+</li>
+<li>
+<p>Part of the C code listing with syntax highlighting, which toggles LEDs only if push button is pressed. Otherwise, the value of the LEDs does not change. Use function from your GPIO library. Let the push button is connected to port D:</p>
+</li>
+</ol>
+<pre><code class="language-c"><div>    <span class="hljs-comment">// Configure Push button at port D and enable internal pull-up resistor</span>
+    <span class="hljs-comment">// WRITE YOUR CODE HERE</span>
+
+    <span class="hljs-comment">// Infinite loop</span>
+    <span class="hljs-comment">// Configure the green LED as output</span>
+    GPIO_config_output(&amp;DDRB, LED_GREEN);
+    GPIO_write_low(&amp;PORTB, LED_GREEN);
+
+    GPIO_config_input_pullup(&amp;DDRD, BTN); <span class="hljs-comment">// Configure the push button at the port D and enable internal pull-up resistor</span>
+
+    <span class="hljs-comment">// Infinite loop</span>
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)
+    {
+        <span class="hljs-keyword">if</span>(!(GPIO_read(&amp;PIND, BTN) == <span class="hljs-number">1</span>)) <span class="hljs-comment">// If the button is pushed </span>
+        {
+            GPIO_toggle(&amp;PORTB, LED_GREEN); <span class="hljs-comment">// Change the state of the LED</span>
+            _delay_ms(<span class="hljs-number">1000</span>); <span class="hljs-comment">// Let 1sec befor shecking the state of the push button again</span>
+        }
+    }
+</div></code></pre>
+<h3 id="traffic-light">Traffic light</h3>
+<ol>
+<li>
+<p>Scheme of traffic light application with one red/yellow/green light for cars and one red/green light for pedestrians. Connect AVR device, LEDs, resistors, one push button (for pedestrians), and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values!</p>
+<p><img src="file:///c:\Users\evamo\Documents\ERASMUS+\Digital-Electronics-2\Labs\03\Capture.PNG" alt="your figure"></p>
+</li>
+</ol>
+
+    </body>
+    </html>
