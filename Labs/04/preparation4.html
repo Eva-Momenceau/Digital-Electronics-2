@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Preparation tasks &lpar;done before the lab at home&rpar;</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <p><a name="preparation"></a></p>
+<h2 id="preparation-tasks-done-before-the-lab-at-home">Preparation tasks (done before the lab at home)</h2>
+<p>Consider an n-bit number that we increment based on the clock signal. If we reach its maximum value and try to increase it, the value will be reset. We call this state an <strong>overflow</strong>. The overflow time depends on the frequency of the clock signal, the number of bits, and on the prescaler value:</p>
+<p> 
+<img src="file:///c:\Users\evamo\Documents\ERASMUS+\Digital-Electronics-2\Labs\04\Images\timer_overflow.png" alt="Timer overflow">
+ </p>
+<ol>
+<li>Calculate the overflow times for three Timer/Counter modules that contain ATmega328P if CPU clock frequency is 16 MHz. Complete the following table for given prescaler values. Note that, Timer/Counter2 is able to set 7 prescaler values, including 32 and 128 and other timers have only 5 prescaler values.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Module</strong></th>
+<th style="text-align:center"><strong>Number of bits</strong></th>
+<th style="text-align:center"><strong>1</strong></th>
+<th style="text-align:center"><strong>8</strong></th>
+<th style="text-align:center"><strong>32</strong></th>
+<th style="text-align:center"><strong>64</strong></th>
+<th style="text-align:center"><strong>128</strong></th>
+<th style="text-align:center"><strong>256</strong></th>
+<th style="text-align:center"><strong>1024</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Timer/Counter0</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">16u</td>
+<td style="text-align:center">128u</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">1024u</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">4096u</td>
+<td style="text-align:center">16384u</td>
+</tr>
+<tr>
+<td style="text-align:center">Timer/Counter1</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">4096u</td>
+<td style="text-align:center">32768u</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">262144u</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">1048776u</td>
+<td style="text-align:center">4194304u</td>
+</tr>
+<tr>
+<td style="text-align:center">Timer/Counter2</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">16u</td>
+<td style="text-align:center">128u</td>
+<td style="text-align:center">512u</td>
+<td style="text-align:center">1024u</td>
+<td style="text-align:center">2048u</td>
+<td style="text-align:center">4096u</td>
+<td style="text-align:center">16384u</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>Shields are boards that can be attached to an Arduino board, significantly expand its capabilities, and makes prototyping much faster. See schematic of <a href="../../Docs/arduino_shield.pdf">Multi-function shield</a> and find out the connection of four LEDs (D1, D2, D3, D4) and three push buttons (S1-A1, S2-A2, S3-A3).
+ 
+D1 = PB5
+ 
+D2 = PB4
+ 
+D3 = PB3
+ 
+D4 = PB2
+ 
+A1 = PC1
+ 
+A2 = PC2
+ 
+A3 = PC3</li>
+</ol>
+
+    </body>
+    </html>
