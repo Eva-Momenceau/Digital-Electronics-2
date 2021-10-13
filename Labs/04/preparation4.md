@@ -19,8 +19,10 @@ Consider an n-bit number that we increment based on the clock signal. If we reac
 &nbsp;
 D1 = PB5
 &nbsp;
+
 D2 = PB4
 &nbsp;
+
 D3 = PB3
 &nbsp;
 D4 = PB2
