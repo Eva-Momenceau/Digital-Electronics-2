@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 4&colon; EVA MOMENCEAU</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="lab-4-eva-momenceau">Lab 4: EVA MOMENCEAU</h1>
+<p>Link to your <code>Digital-electronics-2</code> GitHub repository:</p>
+<p><a href="https://github.com/Eva-Momenceau/Digital-Electronics-2">https://github.com/Eva-Momenceau/Digital-Electronics-2</a></p>
+<h3 id="overflow-times">Overflow times</h3>
+<ol>
+<li>Complete table with overflow times.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Module</strong></th>
+<th style="text-align:center"><strong>Number of bits</strong></th>
+<th style="text-align:center"><strong>1</strong></th>
+<th style="text-align:center"><strong>8</strong></th>
+<th style="text-align:center"><strong>32</strong></th>
+<th style="text-align:center"><strong>64</strong></th>
+<th style="text-align:center"><strong>128</strong></th>
+<th style="text-align:center"><strong>256</strong></th>
+<th style="text-align:center"><strong>1024</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Timer/Counter0</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">16u</td>
+<td style="text-align:center">128u</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">1024u</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">4096u</td>
+<td style="text-align:center">16384u</td>
+</tr>
+<tr>
+<td style="text-align:center">Timer/Counter1</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">4096u</td>
+<td style="text-align:center">32768u</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">262144u</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">1048776u</td>
+<td style="text-align:center">4194304u</td>
+</tr>
+<tr>
+<td style="text-align:center">Timer/Counter2</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">16u</td>
+<td style="text-align:center">128u</td>
+<td style="text-align:center">512u</td>
+<td style="text-align:center">1024u</td>
+<td style="text-align:center">2048u</td>
+<td style="text-align:center">4096u</td>
+<td style="text-align:center">16384u</td>
+</tr>
+</tbody>
+</table>
+<h3 id="timer-library">Timer library</h3>
+<ol>
+<li>
+<p>In your words, describe the difference between common C function and interrupt service routine.</p>
+<ul>
+<li>Function</li>
+<li>Interrupt service routine</li>
+</ul>
+</li>
+<li>
+<p>Part of the header file listing with syntax highlighting, which defines settings for Timer/Counter0:</p>
+</li>
+</ol>
+<pre><code class="language-c"><div><span class="hljs-comment">/**
+ * @name  Definitions for 8-bit Timer/Counter0
+ * @note  t_OVF = 1/F_CPU * prescaler * 2^n where n = 8, F_CPU = 16 MHz
+ */</span>
+<span class="hljs-comment">// WRITE YOUR CODE HERE</span>
+<span class="hljs-comment">/** @brief Stop timer, prescaler 000 --&gt; STOP */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TIM0_stop()           TCCR0B &amp;= ~((1&lt;&lt;CS02) | (1&lt;&lt;CS01) | (1&lt;&lt;CS00));</span>
+<span class="hljs-comment">/** @brief Set overflow 16us, prescaler 001 --&gt; 1 */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TIM0_overflow_16us()   TCCR0B &amp;= ~((1&lt;&lt;CS02) | (1&lt;&lt;CS01)); TCCR0B |= (1&lt;&lt;CS00);</span>
+<span class="hljs-comment">/** @brief Set overflow 128us, prescaler 010 --&gt; 8 */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TIM0_overflow_128us()  TCCR0B &amp;= ~((1&lt;&lt;CS02) | (1&lt;&lt;CS00)); TCCR0B |= (1&lt;&lt;CS01);</span>
+<span class="hljs-comment">/** @brief Set overflow 1ms, prescaler 011 --&gt; 64 */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TIM0_overflow_1ms() TCCR0B &amp;= ~(1&lt;&lt;CS02); TCCR0B |= (1&lt;&lt;CS01) | (1&lt;&lt;CS00);</span>
+<span class="hljs-comment">/** @brief Set overflow 4ms, prescaler 100 --&gt; 256 */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TIM0_overflow_4ms()    TCCR0B &amp;= ~((1&lt;&lt;CS01) | (1&lt;&lt;CS00)); TCCR0B |= (1&lt;&lt;CS02);</span>
+<span class="hljs-comment">/** @brief Set overflow 16ms, prescaler // 101 --&gt; 1024 */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TIM0_overflow_16ms()    TCCR0B &amp;= ~(1&lt;&lt;CS01); TCCR0B |= (1&lt;&lt;CS02) | (1&lt;&lt;CS00);</span>
+<span class="hljs-comment">/** @brief Enable overflow interrupt, 1 --&gt; enable */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TIM0_overflow_interrupt_enable()  TIMSK0 |= (1&lt;&lt;TOIE0);</span>
+<span class="hljs-comment">/** @brief Disable overflow interrupt, 0 --&gt; disable */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TIM0_overflow_interrupt_disable() TIMSK0 &amp;= ~(1&lt;&lt;TOIE0);</span>
+</div></code></pre>
+<ol start="3">
+<li>
+<p>Flowchart figure for function <code>main()</code> and interrupt service routine <code>ISR(TIMER1_OVF_vect)</code> of application that ensures the flashing of one LED in the timer interruption. When the button is pressed, the blinking is faster, when the button is released, it is slower. Use only a timer overflow and not a delay library. The image can be drawn on a computer or by hand. Use clear descriptions of the individual steps of the algorithms.</p>
+<p><img src="" alt="your figure"></p>
+</li>
+</ol>
+<h3 id="knight-rider">Knight Rider</h3>
+<ol>
+<li>
+<p>Scheme of Knight Rider application with four LEDs and a push button, connected according to Multi-function shield. Connect AVR device, LEDs, resistors, push button, and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values.</p>
+<p><img src="" alt="your figure"></p>
+</li>
+</ol>
+
+    </body>
+    </html>
