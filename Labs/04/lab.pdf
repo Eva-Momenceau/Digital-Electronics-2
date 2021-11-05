@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- saved from url=(0101)file:///C:/Users/evamo/Documents/ERASMUS+/Digital-Electronics-2/Labs/05/Assigment5_Eva_Momenceau.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Lab 5: EVA MOMENCEAU</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="./lab_files/markdown.css">
+<link rel="stylesheet" href="./lab_files/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="lab-5-eva-momenceau">Lab 5: EVA MOMENCEAU</h1>
+<p>Link to your <code>Digital-electronics-2</code> GitHub repository:</p>
+<p><a href="https://github.com/Eva-Momenceau/Digital-Electronics-2">https://github.com/Eva-Momenceau/Digital-Electronics-2</a></p>
+<h3 id="7-segment-library">7-segment library</h3>
+<ol>
+<li>
+<p>In your words, describe the difference between Common Cathode and Common Anode 7-segment display.</p>
+<ul>
+<li>CC SSD : All the cathodes of the 7-segments connected stogether</li>
+<li>CA SSD : The 7-segments' anodes are connected together</li>
+</ul>
+</li>
+<li>
+<p>Code listing with syntax highlighting of two interrupt service routines (<code>TIMER1_OVF_vect</code>, <code>TIMER0_OVF_vect</code>) from counter application with at least two digits, ie. values from 00 to 59:</p>
+</li>
+</ol>
+<pre><code class="language-c"><div><span class="hljs-comment">/**********************************************************************
+ * Function: Timer/Counter1 overflow interrupt
+ * Purpose:  Increment counter value from 00 to 59.
+ **********************************************************************/</span>
+<span class="hljs-keyword">volatile</span> <span class="hljs-keyword">uint8_t</span> cnt0 = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">volatile</span> <span class="hljs-keyword">uint8_t</span> cnt1 = <span class="hljs-number">0</span>;
+
+ISR(TIMER1_OVF_vect)
+{
+    <span class="hljs-keyword">if</span>(cnt0 &gt; <span class="hljs-number">9</span>){
+        cnt0 = <span class="hljs-number">0</span>;
+        cnt1++;
+    }
+    <span class="hljs-keyword">if</span>(cnt1 &gt; <span class="hljs-number">5</span>){
+        cnt1 = <span class="hljs-number">0</span>;
+    }
+    cnt0++;
+}
+</div></code></pre>
+<pre><code class="language-c"><div><span class="hljs-comment">/**********************************************************************
+ * Function: Timer/Counter0 overflow interrupt
+ * Purpose:  Display tens and units of a counter at SSD.
+ **********************************************************************/</span>
+ISR(TIMER0_OVF_vect)
+{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">uint8_t</span> pos = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(pos &gt; <span class="hljs-number">1</span>) pos = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">switch</span>(pos){
+        <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+            SEG_update_shift_regs(cnt0, pos);
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+            SEG_update_shift_regs(cnt1, pos);
+            <span class="hljs-keyword">break</span>;
+    }
+    pos++;
+}
+</div></code></pre>
+<ol start="3">
+<li>
+<p>Flowchart figure for function <code>SEG_clk_2us()</code> which generates one clock period on <code>SEG_CLK</code> pin with a duration of 2&nbsp;us. The image can be drawn on a computer or by hand. Use clear descriptions of the individual steps of the algorithms.</p>
+<p><img src="./lab_files/Flowchart.png" alt="your figure"></p>
+</li>
+</ol>
+<h3 id="kitchen-alarm">Kitchen alarm</h3>
+<p>Consider a kitchen alarm with a 7-segment display, one LED and three push buttons: start, +1 minute, -1 minute. Use the +1/-1 minute buttons to increment/decrement the timer value. After pressing the Start button, the countdown starts. The countdown value is shown on the display in the form of mm.ss (minutes.seconds). At the end of the countdown, the LED will start blinking.</p>
+<ol>
+<li>
+<p>Scheme of kitchen alarm; do not forget the supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values.</p>
+<p><img src="./lab_files/Capture.PNG" alt="your figure"></p>
+</li>
+</ol>
+
+    
+    </body></html>

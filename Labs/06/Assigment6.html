@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 6&colon; EVA MOMENCEAU</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="lab-6-eva-momenceau">Lab 6: EVA MOMENCEAU</h1>
+<p>Link to this file in your GitHub repository:</p>
+<p><a href="https://github.com/Eva-Momenceau">https://github.com/Eva-Momenceau</a></p>
+<h3 id="lcd-display-module">LCD display module</h3>
+<ol>
+<li>
+<p>In your words, describe what ASCII table is.</p>
+<ul>
+<li>ASCII table: ASCII table srands for American Standard Code for Information Interchange is character encoding base for computers.</li>
+</ul>
+</li>
+<li>
+<p>(Hand-drawn) picture of time signals between ATmega328P and LCD keypad shield (HD44780 driver) when transmitting three character data <code>De2</code>.</p>
+<p><img src="" alt="your figure"></p>
+</li>
+</ol>
+<h3 id="stopwatch">Stopwatch</h3>
+<ol>
+<li>
+<p>Flowchart figure for <code>TIMER2_OVF_vect</code> interrupt service routine which overflows every 16 ms but it updates the stopwatch LCD approximately every 100 ms (6 x 16 ms = 100 ms). Display tenths of a second and seconds <code>00:seconds.tenths</code>. Let the stopwatch counts from <code>00:00.0</code> to <code>00:59.9</code> and then starts again. The image can be drawn on a computer or by hand. Use clear descriptions of the individual steps of the algorithms.</p>
+<p><img src="file:///c:\Users\evamo\Documents\ERASMUS+\Digital-Electronics-2\Labs\06\flow.png" alt="your figure"></p>
+</li>
+</ol>
+<h3 id="custom-characters">Custom characters</h3>
+<ol>
+<li>Code listing of two custom character definition. Always use syntax highlighting and meaningful comments:</li>
+</ol>
+<pre><code class="language-c"><div><span class="hljs-comment">/* Variables ---------------------------------------------------------*/</span>
+<span class="hljs-comment">// Custom character definition</span>
+<span class="hljs-keyword">uint8_t</span> customChar1[<span class="hljs-number">16</span>] = {
+    <span class="hljs-number">0b00111</span>,
+    <span class="hljs-number">0b01110</span>,
+    <span class="hljs-number">0b11100</span>,
+    <span class="hljs-number">0b11000</span>,
+    <span class="hljs-number">0b11100</span>,
+    <span class="hljs-number">0b01110</span>,
+    <span class="hljs-number">0b00111</span>,
+    <span class="hljs-number">0b00011</span>
+};
+
+<span class="hljs-keyword">uint8_t</span> customChar2[<span class="hljs-number">16</span>] = {
+    <span class="hljs-number">0b10001</span>,
+	<span class="hljs-number">0b10001</span>,
+	<span class="hljs-number">0b10001</span>,
+	<span class="hljs-number">0b10001</span>,
+	<span class="hljs-number">0b10001</span>,
+	<span class="hljs-number">0b10001</span>,
+	<span class="hljs-number">0b10001</span>,
+	<span class="hljs-number">0b10001</span>
+};
+</div></code></pre>
+<h3 id="kitchen-alarm">Kitchen alarm</h3>
+<p>Consider a kitchen alarm with an LCD, one LED and three push buttons: start, +1 minute, -1 minute. Use the +1/-1 minute buttons to increment/decrement the timer value. After pressing the Start button, the countdown starts. The countdown value is shown on the display in the form of mm.ss (minutes.seconds). At the end of the countdown, the LED will start blinking.</p>
+<ol>
+<li>Scheme of kitchen alarm; do not forget the supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values.</li>
+</ol>
+<h1 id="your-figure"><img src="file:///c:\Users\evamo\Documents\ERASMUS+\Digital-Electronics-2\Labs\06\cap.png" alt="your figure"></h1>
+
+    </body>
+    </html>

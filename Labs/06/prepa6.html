@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Preparation tasks &lpar;done before the lab at home&rpar;</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <p><a name="preparation"></a></p>
+<h2 id="preparation-tasks-done-before-the-lab-at-home">Preparation tasks (done before the lab at home)</h2>
+<p>Use schematic of the <a href="../../Docs/arduino_shield.pdf">LCD keypad shield</a> and find out the connection of LCD display. What data and control signals are used? What is the meaning of these signals?</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>LCD signal(s)</strong></th>
+<th style="text-align:center"><strong>AVR pin(s)</strong></th>
+<th style="text-align:left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">RS</td>
+<td style="text-align:center">PB0</td>
+<td style="text-align:left">Register selection signal. Selection between Instruction register (RS=0) and Data register (RS=1)</td>
+</tr>
+<tr>
+<td style="text-align:center">R/W</td>
+<td style="text-align:center">gnd</td>
+<td style="text-align:left">read from the LCD (RW=1) and Write to the LCD</td>
+</tr>
+<tr>
+<td style="text-align:center">E</td>
+<td style="text-align:center">PB1[9]</td>
+<td style="text-align:left">send data to data pins (enable)</td>
+</tr>
+<tr>
+<td style="text-align:center">D[3:0]</td>
+<td style="text-align:center">none</td>
+<td style="text-align:left">define</td>
+</tr>
+<tr>
+<td style="text-align:center">D[7:4]</td>
+<td style="text-align:center">PD[7:4]</td>
+<td style="text-align:left">data pins of 8-bits</td>
+</tr>
+</tbody>
+</table>
+<p>What is the ASCII table? What are the codes/values for uppercase letters <code>A</code> to <code>Z</code>, lowercase letters <code>a</code> to <code>z</code>, and numbers <code>0</code> to <code>9</code> in this table?</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Char</strong></th>
+<th style="text-align:center"><strong>Decimal</strong></th>
+<th style="text-align:center"><strong>Hexadecimal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>A</code></td>
+<td style="text-align:center">65</td>
+<td style="text-align:center">0x41</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>B</code></td>
+<td style="text-align:center">66</td>
+<td style="text-align:center">0x42</td>
+</tr>
+<tr>
+<td style="text-align:center">...</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>a</code></td>
+<td style="text-align:center">97</td>
+<td style="text-align:center">0x61</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>b</code></td>
+<td style="text-align:center">98</td>
+<td style="text-align:center">0x62</td>
+</tr>
+<tr>
+<td style="text-align:center">...</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center">48</td>
+<td style="text-align:center">0x30</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">0x31</td>
+</tr>
+<tr>
+<td style="text-align:center">...</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+
+    </body>
+    </html>
